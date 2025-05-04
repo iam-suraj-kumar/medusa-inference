@@ -28,8 +28,9 @@ def save_medusa_heads(final_save_dir, medusa_num_heads, model, torch_dtype):
     """
     # Save medusa config
     medusa_config = MedusaConfig(
+        medusa_num_layers=1
         medusa_num_heads=medusa_num_heads,
-        base_model_name_or_path="./model/base-model/",
+        base_model_name_or_path="lmsys/vicuna-7b-v1.5",
         version="2",
     )
     medusa_config.save_pretrained(final_save_dir)
