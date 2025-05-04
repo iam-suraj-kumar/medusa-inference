@@ -89,16 +89,10 @@ trainer = MedusaSFTTrainer(
 trainer.train()
 
 ##########################
-# Save tokenizer, medusa heads, and original model
+# Save tokenizer, medusa heads
 ##########################
 save_dir = "./model/medusa-model"
 trainer.tokenizer.save_pretrained(save_dir)
 save_medusa_heads(
     save_dir, script_args.medusa_num_heads, model, torch_dtype
 )
-# Save original base model
-base_model_path = Path("./model/base-model/")
-base_model_path.mkdir(parents=True, exist_ok=True)
-for filename in os.listdir(script_args.model_path):
-    file_path = os.path.join(script_args.model_path, filename)
-    shutil.move(file_path, base_model_path)
