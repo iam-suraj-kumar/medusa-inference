@@ -1,7 +1,8 @@
 python train.py \
-  --train_dataset_path './input/data/train/train_dataset.json' \
-  --eval_dataset_path './input/data/eval/eval_dataset.json' \
-  --max_seq_len 256 \
+  --train_dataset_path "./datasets/chatbot_arena_conversations/train/train_dataset.json" \
+  --eval_dataset_path "./datasets/chatbot_arena_conversations/eval/eval_dataset.json" \
+  --model_path "lmsys/vicuna-7b-v1.5" \
+  --max_seq_len 512 \
   --medusa_num_heads 5 \
   --num_train_epochs 3 \                           
   --per_device_train_batch_size 1 \                  
@@ -11,7 +12,7 @@ python train.py \
   --logging_steps 15 \                          
   --save_strategy "steps" \                         
   --save_steps 15 \
-  --save_total_limit2 \
+  --save_total_limit 2 \
   --eval_strategy "steps" \
   --eval_steps 15 \
   --learning_rate 1e-4 \                             
@@ -19,4 +20,4 @@ python train.py \
   --max_grad_norm 10 \                               
   --warmup_ratio 0.03 \                             
   --lr_scheduler_type "constant" \                   
-  --output_dir './checkpoints/'
+  --output_dir "./checkpoints/"
