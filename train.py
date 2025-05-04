@@ -54,7 +54,7 @@ model = AutoModelForCausalLM.from_pretrained(
 # Add medusa heads and freeze base model
 add_medusa_heads(
     model,
-    medusa_num_layers=1
+    medusa_num_layers=1,
     medusa_num_heads=script_args.medusa_num_heads,
 )
 freeze_layers(model)
