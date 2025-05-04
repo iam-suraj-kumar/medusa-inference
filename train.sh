@@ -1,0 +1,22 @@
+python train.py \
+  --train_dataset_path './input/data/train/train_dataset.json' \
+  --eval_dataset_path './input/data/eval/eval_dataset.json' \
+  --max_seq_len 256 \
+  --medusa_num_heads 5 \
+  --num_train_epochs 3 \                           
+  --per_device_train_batch_size 1 \                  
+  --gradient_accumulation_steps 16 \               
+  --gradient_checkpointing True \               
+  --optim "adamw_8bit" \                  
+  --logging_steps 15 \                          
+  --save_strategy "steps" \                         
+  --save_steps 15 \
+  --save_total_limit2 \
+  --eval_strategy "steps" \
+  --eval_steps 15 \
+  --learning_rate 1e-4 \                             
+  --bf16 True \                           
+  --max_grad_norm 10 \                               
+  --warmup_ratio 0.03 \                             
+  --lr_scheduler_type "constant" \                   
+  --output_dir './checkpoints/'
